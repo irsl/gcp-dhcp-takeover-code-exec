@@ -434,6 +434,22 @@ while reinitiating the connection after the network connectivity was restored, i
 
 Note, using a random generated MAC address wouldn't prevent mounting the attack on the same subnet.
 
+# FAQ
+
+** - The issue seems generic. Are other cloud providers affected as well? **
+
+- I checked only the major ones, they were not affected (at least at the time of checking) due to another factors 
+  (e.g. not using DHCP by default).
+
+** - If Google doesn't fix this, what can I do? **
+
+- Google usually closes bug reports with status "Unfeasible" when the efforts required to fix outweigh the risk. 
+  This is not the case here, I think there is some technical complexity in the background, which doesn't allow
+  them deploying a network level protection measure easily.
+  Until the fix arrives, don't use DHCP or setup a host level firewall rule to ensure the DHCP communication comes 
+  from the metadata server (169.254.169.254).
+
+
 # Timeline
 
 2020-09-26: Issue identified, attack #1 validated
