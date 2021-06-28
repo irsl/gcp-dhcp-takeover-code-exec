@@ -444,7 +444,7 @@ Note, using a random generated MAC address wouldn't prevent mounting the attack 
 ** - If Google doesn't fix this, what can I do? **
 
 - Google usually closes bug reports with status "Unfeasible" when the efforts required to fix outweigh the risk. 
-  This is not the case here, I think there is some technical complexity in the background, which doesn't allow
+  This is not the case here. I think there is some technical complexity in the background, which doesn't allow
   them deploying a network level protection measure easily.
   Until the fix arrives, don't use DHCP or setup a host level firewall rule to ensure the DHCP communication comes 
   from the metadata server (169.254.169.254).
@@ -462,3 +462,7 @@ Note, using a random generated MAC address wouldn't prevent mounting the attack 
 2021-06-07: Asked Google if a fix is coming in a reasonable time, as I'm planning to publish an advisory
 2021-06-08: Standard response "we ask for a reasonable advance notice."
 2021-06-25: Public disclosure
+
+# Credits
+
+[Imre Rad](https://www.linkedin.com/in/imre-rad-2358749b/)
