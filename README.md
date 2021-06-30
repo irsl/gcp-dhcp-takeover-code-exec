@@ -449,6 +449,20 @@ Note, using a random generated MAC address wouldn't prevent mounting the attack 
   Until the fix arrives, don't use DHCP or setup a host level firewall rule to ensure the DHCP communication comes 
   from the metadata server (169.254.169.254).
 
+** - How to detect this attack? **
+
+DHCP renewal usually yields only a few packets every 30 minutes (per host). This attack requires sending a flood of
+DHCP packets (hundreds of thousands of packets per second). Setting a rate limiter could probably detect or prevent
+the attack:
+
+```
+iptables -A INPUT -p udp --dport 68 -m state --state NEW -m recent --set
+iptables -A INPUT -p udp --dport 68 -m state --state NEW -m recent --update --seconds 1 --hitcount 10 -j LOG --log-prefix "DHCP attack detected "
+```
+
+** - What is the internal ID of this bug in Google's bug tracker? **
+
+https://issuetracker.google.com/issues/169519201
 
 # Timeline
 
