@@ -466,16 +466,16 @@ https://issuetracker.google.com/issues/169519201
 
 # Timeline
 
-2020-09-26: Issue identified, attack #1 validated
-2020-09-27: Reported to Google VRP
-2020-09-29: VRP triage is complete "looking into it"
-2020-10-02: Further details shared about attack #2 and #3
-2020-10-07: Accepted, "Nice catch"
-2020-12-02: Update requested about the estimated time of fix
-2020-12-03: ... "holiday season coming up"
-2021-06-07: Asked Google if a fix is coming in a reasonable time, as I'm planning to publish an advisory
-2021-06-08: Standard response "we ask for a reasonable advance notice."
-2021-06-25: Public disclosure
+* 2020-09-26: Issue identified, attack #1 validated
+* 2020-09-27: Reported to Google VRP
+* 2020-09-29: VRP triage is complete "looking into it"
+* 2020-10-02: Further details shared about attack #2 and #3
+* 2020-10-07: Accepted, "Nice catch"
+* 2020-12-02: Update requested about the estimated time of fix
+* 2020-12-03: ... "holiday season coming up"
+* 2021-06-07: Asked Google if a fix is coming in a reasonable time, as I'm planning to publish an advisory
+* 2021-06-08: Standard response "we ask for a reasonable advance notice."
+* 2021-06-25: Public disclosure
 
 # Credits
 
