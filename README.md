@@ -446,8 +446,10 @@ Note, using a random generated MAC address wouldn't prevent mounting the attack 
 - Google usually closes bug reports with status "Unfeasible" when the efforts required to fix outweigh the risk. 
   This is not the case here. I think there is some technical complexity in the background, which doesn't allow
   them deploying a network level protection measure easily.
-  Until the fix arrives, don't use DHCP or setup a host level firewall rule to ensure the DHCP communication comes 
-  from the metadata server (169.254.169.254).
+  Until the fix arrives, consider one of the followings:
+  - don't use DHCP
+  - setup a host level firewall rule to ensure the DHCP communication comes from the metadata server (169.254.169.254)
+  - setup a GCP/VPC/Firewall rule blocking udp/68 as is (all source, all destination) [more info](https://github.com/irsl/gcp-dhcp-takeover-code-exec/issues/4#issuecomment-872145234)
 
 ** - How to detect this attack? **
 
