@@ -464,6 +464,15 @@ iptables -A INPUT -p udp --dport 68 -m state --state NEW -m recent --update --se
 
 https://issuetracker.google.com/issues/169519201
 
+** - Is this a vulnerability of ISC dhclient? **
+
+While a PRNG with more entropy sources could have prevented this flaw being exploitable in GCP, I still think this is not 
+a vulnerability of their implementation for the following two reasons:
+- DHCP XIDs are public (broadcasted on the same LAN) anyway
+- with regular IP/MAC setups (=where they are not predictable/static) and udp/68 exposed, not even the current "weak" PRNG 
+  would be practically exploitable
+
+
 # Timeline
 
 * 2020-09-26: Issue identified, attack #1 validated
