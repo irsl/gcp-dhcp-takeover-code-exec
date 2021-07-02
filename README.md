@@ -451,6 +451,22 @@ Note, using a random generated MAC address wouldn't prevent mounting the attack 
   - setup a host level firewall rule to ensure the DHCP communication comes from the metadata server (169.254.169.254)
   - setup a GCP/VPC/Firewall rule blocking udp/68 as is (all source, all destination) [more info](https://github.com/irsl/gcp-dhcp-takeover-code-exec/issues/4#issuecomment-872145234)
 
+Google's official guidance to block untrusted internal traffic to exploit this flaw:
+
+---
+> To block incoming traffic over UDP port 68, adjust the following gCloud command syntax for your environment:
+> 
+> ```
+> gcloud --project=<your-project> compute firewall-rules create block-dhcp --action=DENY --rules=udp:68 --network=<your-network> --priority=100
+> ```
+> 
+> * The above command will create a firewall rule named `"block-dhcp"` in the specified project and VPC that will block all inbound traffic over UDP port 68 
+> * Setting the priority to `100` gives the rule a high priority, but other values can be used. We recommend setting this value [as low as possible](https://cloud.google.com/vpc/docs/firewalls#priority_order_for_firewall_rules) to prevent other rules from superseding it 
+> * The command will need to be executed for each VPC you wish to block DHCP on by replacing `<your-network>` with the respective VPC
+> * Note that firewall rule names cannot be reused within the same project; multiple rules for different VPCs in a project will need to have different names (`block-dhcp2`, `block-dhcp-vpcname`, etc)
+> * Additional information on configuring firewall rules can be in Google Cloud documentation [here](https://cloud.google.com/vpc/docs/using-firewalls).
+---
+
 ** - How to detect this attack? **
 
 DHCP renewal usually yields only a few packets every 30 minutes (per host). This attack requires sending a flood of
@@ -473,6 +489,9 @@ a vulnerability of their implementation for the following two reasons:
 - DHCP XIDs are public (broadcasted on the same LAN) anyway
 - with regular IP/MAC setups (=where they are not predictable/static) and udp/68 exposed, not even the current "weak" PRNG 
   would be practically exploitable
+
+Note: in the meanwhile, Google has identified an [additional attack vector](https://gitlab.isc.org/isc-projects/dhcp/-/issues/197)
+gaining an MitM position for a local threat actor.
 
 
 # Timeline
