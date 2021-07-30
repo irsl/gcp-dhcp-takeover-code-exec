@@ -506,6 +506,7 @@ gaining an MitM position for a local threat actor.
 * 2021-06-07: Asked Google if a fix is coming in a reasonable time, as I'm planning to publish an advisory
 * 2021-06-08: Standard response "we ask for a reasonable advance notice."
 * 2021-06-25: Public disclosure
+* 2021-07-30: "Our systems show that all the bugs we created based on your report have been fixed by the product team."
 
 # Credits
 
