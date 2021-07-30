@@ -1,7 +1,7 @@
 # Abstract
 
-This is an advisory about an unpatched vulnerability (at time of publishing this repo, 2021-06-25) affecting 
-virtual machines in Google's Compute Engine platform. 
+This was an advisory about an unpatched vulnerability (at time of publishing this repo, 2021-06-25) affecting 
+virtual machines in Google's Compute Engine platform. The flaw is fixed by Google since (as of 2021-07-30).
 The technical details below is almost exactly the same as my report sent to the VRP team.
 
 Attackers could take over virtual machines of the Google Cloud Platform over the network due to weak 
